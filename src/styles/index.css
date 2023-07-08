@@ -34,10 +34,16 @@
     &.selected{box-shadow: #f8ffcc 0px 0px 50px 20px;}
 }
 
+.container-fluid{
+    margin: auto;
+    text-align: center;
+}
+
 .btn{
     color: white;
     margin: 0 2rem;
     font-size: 2rem;
     background: rgb(5, 11, 94);
     &:hover {background: rgb(16, 26, 161); color: white;}
+    &:disabled{background: rgb(24, 1, 68); color: darkgray;}
 }
