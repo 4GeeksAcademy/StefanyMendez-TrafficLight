@@ -12,8 +12,6 @@ const TrafficLight = () => {
     const [disableStop, setDisableStop] = useState(true)
     const [disableAddPurple, setDisableAddPurple] = useState(false)
     const [disableDeletePutble, setDisableDeletePurple] = useState(true)
-    const [disableClearSelected, setDisableClearSelection] = useState(false)
-
 
     const [hidden, setHidden] = useState(true)
     const interval = useRef(null);
@@ -22,56 +20,44 @@ const TrafficLight = () => {
 
 
     const colorSelected = () => {
-        
+
         if (color == "red") {
             setcolorRedSelected("selected")
             setcolorYellowSelected("")
             setcolorGreenSelected("")
             setcolorPurpleSelected("")
-           
+
         }
         if (color == "yellow") {
             setcolorYellowSelected("selected")
             setcolorRedSelected("")
             setcolorGreenSelected("")
             setcolorPurpleSelected("")
-          
+
         }
         if (color == "green") {
             setcolorGreenSelected("selected")
             setcolorRedSelected("")
             setcolorYellowSelected("")
             setcolorPurpleSelected("")
-            
+
         }
         if (color == "purple") {
             setcolorPurpleSelected("selected")
             setcolorRedSelected("")
             setcolorYellowSelected("")
             setcolorGreenSelected("")
-         
         }
-        
-    }
-    const clearSelected = () => {
-            
-       // console.log(colorRedSelected);
-        
-       setcolorRedSelected(8)
-       
-       setcolorYellowSelected("")
-       setcolorGreenSelected("")
-       setcolorPurpleSelected("")
 
-       console.log(colorRedSelected);
-       console.log(colorGreenSelected);
-       console.log(colorPurpleSelected);
-       console.log(colorYellowSelected);
-       
-       
     }
 
     const handleStart = () => {
+
+        setcolorRedSelected("")
+        setcolorYellowSelected("")
+        setcolorGreenSelected("")
+        setcolorPurpleSelected("")
+        setColor("")
 
         setDisableChange(true)
         setDisableStop(false)
@@ -187,8 +173,7 @@ const TrafficLight = () => {
 
     useEffect(() => {
         colorSelected();
-    }
-    )
+    })
 
     return (
         <div>
@@ -201,7 +186,6 @@ const TrafficLight = () => {
             </div>
 
             <div className="container-fluid">
-                <button className="btn btn-lg shadow-lg" disabled={disableClearSelected} onClick={() => clearSelected()}>Clear Selection</button>
                 <button className="btn btn-lg shadow-lg" disabled={disableChange} onClick={() => handleStart()}>Change Color</button>
                 <button className="btn btn-lg shadow-lg" disabled={disableStop} onClick={() => handleReset()}>Stop Change Color</button>
                 <button className="btn btn-lg shadow-lg" disabled={disableAddPurple} onClick={() => addPurple()}>Add Purple</button>
